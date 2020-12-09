@@ -1,0 +1,35 @@
+<mat-card>
+    <mat-card-title>Welcome to the Test Module!</mat-card-title>
+    <mat-card-content>
+        This is a test.
+    </mat-card-content>
+</mat-card>
+<mat-card>
+    <mat-card-title>Welcome to test</mat-card-title>
+    <mat-card-content>
+        This is the example module.
+    </mat-card-content>
+</mat-card>
+<mat-card>
+    <mat-card-title>Hak5 MyModule Test</mat-card-title>
+    <mat-card-content>
+        This is the example module.
+	<button mat-flat-button color="accent" (click)="doAPIAction();">
+		API Request
+	</button>
+	<br/>
+	<span> The version is: {{apiResponse }}</span>
+	<br/>
+    </mat-card-content>
+</mat-card>
+<mat-grid-list cols="4" [style.background]="'skyblue'">
+	<mat-grid-tile>Stat 1</mat-grid-tile>
+	<mat-grid-tile>Stat 2</mat-grid-tile>
+	<mat-grid-tile>Stat 3</mat-grid-tile>
+	<mat-grid-tile>Stat 4</mat-grid-tile>
+	<mat-grid-tile>Stat 5</mat-grid-tile>
+	<mat-grid-tile>Stat 6</mat-grid-tile>
+	<mat-grid-tile>Stat 7</mat-grid-tile>
+	<mat-grid-tile>Stat 8</mat-grid-tile>
+</mat-grid-list>
+
