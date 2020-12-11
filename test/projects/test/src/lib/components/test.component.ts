@@ -31,7 +31,8 @@ export class testComponent implements OnInit {
 
 	this.API.request({
 	    module: 'test',
-	    action: 'gateway_info'
+	    action: 'gateway_info',
+	    interface: 'wlan2',
 	}, (response) => {
 	    this.datausage = response;
 	    console.log(response);
