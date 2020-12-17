@@ -9,7 +9,7 @@ import { ApiService } from '../services/api.service';
 export class testComponent implements OnInit {
     constructor(private API: ApiService) { }
 
-    apiResponse = "...press the button...";
+    apiversion = "";
     datausage = {'rx':'0','tx':'0'};
     stats = [
 	{name: 'test1', value: '0.1'},
@@ -26,7 +26,7 @@ export class testComponent implements OnInit {
     doAPIAction(): void {
 
 	this.API.APIGet('/api/status', (response) => {
-	    this.apiResponse = response.versionString;
+	    this.apiversion = response.versionString;
 	});
 
 	this.API.request({

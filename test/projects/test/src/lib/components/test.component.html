@@ -1,32 +1,125 @@
-<mat-card>
-    <mat-card-title>Welcome to the Test Module!</mat-card-title>
-    <mat-card-content>
-        This is a test.
-	<button mat-flat-button color="accent" (click)="doAPIAction();">
-		API Request
-	</button>
-	<br/>
-	<span> The version is: {{apiResponse }}</span>
-	<br/>
-    </mat-card-content>
-</mat-card>
-<mat-card>
-    <mat-card-title>Data Usage</mat-card-title>
-    <mat-card-content>
-        <button mat-flat-button color="accent" (click)="doAPIAction();">
-                Get Data Usage
-        </button>
-        <br/>
-        <span>{{datausage.rx }}</span>
-        <br/>
-        <span>{{datausage.tx }}</span>
-        <br/>
-    </mat-card-content>
-</mat-card>
-<mat-grid-list cols="4">
-	<mat-grid-tile *ngFor="let stat of stats">
-	{{ stat.name }}
-	{{ stat.value }}
-	</mat-grid-tile>
-</mat-grid-list>
+<mat-grid-list cols="3">
 
+<mat-grid-tile>
+<mat-card class="shortmodule">
+    <mat-card-title>Test Module
+        <button matTooltip="Refresh" mat-icon-button (click)="doAPIAction();">
+                <mat-icon>refresh</mat-icon>
+        </button>
+    </mat-card-title>
+    <mat-card-content>
+        <span> Firmware Version: {{apiversion}}</span>
+        <br/>
+        <span> Module Version: 1.1.6</span>
+        <br/>
+    </mat-card-content>
+</mat-card>
+<br/>
+</mat-grid-tile>
+
+<mat-grid-tile>
+<mat-card class="shortmodule">
+    <mat-card-title>Data Usage
+        <button matTooltip="Refresh" mat-icon-button (click)="doAPIAction();">
+                <mat-icon>refresh</mat-icon>
+        </button>
+    </mat-card-title>
+    <mat-card-content>
+        <span>{{datausage.rx}}</span>
+        <br/>
+        <span>{{datausage.tx}}</span>
+        <br/>
+    </mat-card-content>
+</mat-card>
+<br/>
+</mat-grid-tile>
+
+<mat-grid-tile>
+<mat-card class="shortmodule">
+    <mat-card-title>Other
+        <button matTooltip="Refresh" mat-icon-button (click)="doAPIAction();">
+                <mat-icon>refresh</mat-icon>
+        </button>
+    </mat-card-title>
+    <mat-card-content>
+        <span>{{datausage.rx}}</span>
+        <br/>
+        <span>{{datausage.tx}}</span>
+        <br/>
+    </mat-card-content>
+</mat-card>
+</mat-grid-tile>
+
+<mat-grid-tile>
+<mat-card>
+
+    <mat-card-title>PineAP
+        <button matTooltip="Refresh" mat-icon-button (click)="doAPIAction();">
+                <mat-icon>refresh</mat-icon>
+        </button>
+    </mat-card-title>
+
+    <mat-card-subtitle>
+    	Public and Management APs
+    </mat-card-subtitle>
+
+    <mat-card-content>
+        <br/>
+    </mat-card-content>
+
+    <mat-card-footer>
+	wlan0
+    </mat-card-footer>
+
+</mat-card>
+</mat-grid-tile>
+
+<mat-grid-tile>
+<mat-card>
+
+    <mat-card-title>Monitor
+        <button matTooltip="Refresh" mat-icon-button (click)="doAPIAction();">
+                <mat-icon>refresh</mat-icon>
+        </button>
+    </mat-card-title>
+    
+    <mat-card-subtitle>
+	Dedicated monitor mode radio
+    </mat-card-subtitle>
+
+    <mat-card-content>
+        <br/>
+    </mat-card-content>
+
+    <mat-card-footer>
+        wlan1
+    </mat-card-footer>
+
+</mat-card>
+</mat-grid-tile>
+
+<mat-grid-tile>
+<mat-card>
+
+    <mat-card-title>Gateway
+        <button matTooltip="Refresh" mat-icon-button (click)="doAPIAction();">
+                <mat-icon>refresh</mat-icon>
+        </button>
+    </mat-card-title>
+
+    <mat-card-subtitle>
+        Link to the Internet
+    </mat-card-subtitle>
+
+    <mat-card-content>
+        <br/>
+    </mat-card-content>
+
+    <mat-card-footer>
+        wlan2
+    </mat-card-footer>
+
+</mat-card>
+</mat-grid-tile>
+
+</mat-grid-list>

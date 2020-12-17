@@ -1,0 +1,16 @@
+mat-card {
+  width: calc(100% - 70px);
+  height: calc(100% - 70px);
+}
+
+.shortmodule {
+  height: 200px;
+}
+
+.mat-card-footer {
+    margin: 10px 6px -7px 5px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+
