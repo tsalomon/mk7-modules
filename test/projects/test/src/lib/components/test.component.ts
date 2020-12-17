@@ -11,6 +11,8 @@ export class testComponent implements OnInit {
 
     apiversion = "";
     datausage = {'rx':'0','tx':'0'};
+    mountinfo = {'location':'null', 'info':'none yet'};
+    txpower="0.00"
     stats = [
 	{name: 'test1', value: '0.1'},
 	{name: 'test1', value: '0.2'},
@@ -36,6 +38,27 @@ export class testComponent implements OnInit {
 	}, (response) => {
 	    this.datausage = response;
 	    console.log(response);
+	});
+    }
+
+    getUsbMountInfo(): void {
+	this.API.request({
+		module: 'test',
+		action: 'usb_mount',
+	}, (response) => {
+		this.mountinfo = response;
+		console.log(response);
+	});
+
+    }
+
+    getTxPower(): void {
+	this.API.request({
+		module: 'test',
+		action: 'tx_power',
+		interface: 'wlan2',
+	}, (response) => {
+		this.txpower = response;
 	});
     }
 	
