@@ -1,4 +1,4 @@
-mat-card {
+.mat-card {
   width: calc(100% - 70px);
   height: calc(100% - 70px);
 }
@@ -13,4 +13,29 @@ mat-card {
     font-weight: bold;
 }
 
+.mat-grid-tile {
+    height: 100%;
+}
 
+hr {
+	border: none;
+	height: 3px;
+	/* height: 10px; */
+	color: #333;
+	background-color: #333;
+}
+
+
+.displayname {
+	display:inline-flex;
+}
+
+.displayvalue {
+
+	float: right;
+}
+
+mat-card-content > h3 {
+
+	margin: 0px;
+}

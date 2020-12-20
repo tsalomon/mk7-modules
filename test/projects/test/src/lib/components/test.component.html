@@ -1,55 +1,6 @@
 <mat-grid-list cols="3">
 
 <mat-grid-tile>
-<mat-card class="shortmodule">
-    <mat-card-title>Test Module
-        <button matTooltip="Refresh" mat-icon-button (click)="doAPIAction();">
-                <mat-icon>refresh</mat-icon>
-        </button>
-    </mat-card-title>
-    <mat-card-content>
-        <span> Firmware Version: {{apiversion}}</span>
-        <br/>
-        <span> Module Version: 1.1.6</span>
-        <br/>
-    </mat-card-content>
-</mat-card>
-<br/>
-</mat-grid-tile>
-
-<mat-grid-tile>
-<mat-card class="shortmodule">
-    <mat-card-title>Data Usage
-        <button matTooltip="Refresh" mat-icon-button (click)="doAPIAction();">
-                <mat-icon>refresh</mat-icon>
-        </button>
-    </mat-card-title>
-    <mat-card-content>
-        <span>{{datausage.rx}}</span>
-        <br/>
-        <span>{{datausage.tx}}</span>
-        <br/>
-    </mat-card-content>
-</mat-card>
-<br/>
-</mat-grid-tile>
-
-<mat-grid-tile>
-<mat-card class="shortmodule">
-    <mat-card-title>USB Persistence
-        <button matTooltip="Refresh" mat-icon-button (click)="getUsbMountInfo();">
-                <mat-icon>refresh</mat-icon>
-        </button>
-    </mat-card-title>
-    <mat-card-content>
-        <span>{{mountinfo.location}}</span>
-	<span>{{mountinfo.info}}</span>
-        <br/>
-    </mat-card-content>
-</mat-card>
-</mat-grid-tile>
-
-<mat-grid-tile>
 <mat-card>
 
     <mat-card-title>PineAP
@@ -100,8 +51,9 @@
 <mat-grid-tile>
 <mat-card>
 
-    <mat-card-title>Gateway
-        <button matTooltip="Refresh" mat-icon-button (click)="getTxPower();">
+    <mat-card-title>
+	<div style="display: inline-block; vertical-align: sub;">Gateway</div>
+        <button style="float: right;" matTooltip="Refresh" mat-icon-button (click)="getTxPower();">
                 <mat-icon>refresh</mat-icon>
         </button>
     </mat-card-title>
@@ -111,14 +63,38 @@
     </mat-card-subtitle>
 
     <mat-card-content>
-        <span>{{txpower}}</span>
+	<hr/>
+	<h3>Radio</h3>
+	<hr/>
+	<span><div class="displayname">Interface:</div><div class="displayvalue">wlan2</div></span>
+	<br/>
+	<span><div class="displayname">TX Power:</div><div class="displayvalue">{{txpower}}</div></span>
+	<br/>
+	<span><div class="displayname">Bitrate:</div><div class="displayvalue">0.00 Mb/s</div></span>
+	<br/>
+        <hr/>
+        <h3>Access Point</h3>
+        <hr/>
+        <span><div class="displayname">ESSID:</div><div class="displayvalue">TestNet (channel 4)</div></span>
+        <br/>
+        <span><div class="displayname">MAC Address:</div><div class="displayvalue">00:01:02:03:04:05</div></span>
+        <br/>
+        <span><div class="displayname">IP Address:</div><div class="displayvalue">192.168.101.100</div></span>
+        <br/>
+        <span><div class="displayname">Gateway:</div><div class="displayvalue">192.169.101.1</div></span>
+	<br/>
+        <span><div class="displayname">DNS:</div><div class="displayvalue">192.168.101.1, 1.1.1.1, 8.8.8.8</div></span>
+        <br/>
+	<hr/>
+	<h3>Data</h3>
+	<hr/>
+	<span><div class="displayname">Data Rate:</div><div class="displayvalue">0.00 Mb/s</div></span>
+	<br/>
+	<span><div class="displayname">Total in:</div><div class="displayvalue">{{datausage.rx}}</div></span>
+	<br/>
+	<span><div class="displayname">Total out:</div><div class="displayvalue">{{datausage.tx}}</div></span>
 	<br/>
     </mat-card-content>
-
-    <mat-card-footer>
-        wlan2
-    </mat-card-footer>
-
 </mat-card>
 </mat-grid-tile>
 
