@@ -9,22 +9,14 @@ import { ApiService } from '../services/api.service';
 export class testComponent implements OnInit {
     constructor(private API: ApiService) { }
 
-    apiversion = "";
-    datausage = {'rx':'0','tx':'0'};
-    mountinfo = {'location':'null', 'info':'none yet'};
-    txpower="0.00"
-    stats = [
-	{name: 'test1', value: '0.1'},
-	{name: 'test1', value: '0.2'},
-	{name: 'test1', value: '0.3'},
-	{name: 'test1', value: '0.4'},
-	{name: 'test1', value: '0.5'},
-	{name: 'test1', value: '0.6'},
-	{name: 'test1', value: '0.7'},
-	{name: 'test1', value: '0.8'},
-	{name: 'test1', value: '0.9'}, 
-    ];
 
+    gateway_radio = {'interface':'wlan2', 'txpower':'0.00 [dBm]', 'bitrate':'0.00 [Mbps]'}
+    gateway_ap = {'essid':'TestNet', 'mac':'00:01:02:03:04:05', 'ip':'192.168.1.100', 'gw':'192.168.1.1/24', 'dns':'192.168.1.1'}
+    gateway_data = {'rate':'0.00 [Mbps]', 'rx':'0 [bytes]', 'tx':'0 [bytes]'}    
+
+    apiversion = "";
+    mountinfo = {'location':'null', 'info':'none yet'};
+    
     doAPIAction(): void {
 
 	this.API.APIGet('/api/status', (response) => {
@@ -36,7 +28,8 @@ export class testComponent implements OnInit {
 	    action: 'gateway_info',
 	    interface: 'wlan2',
 	}, (response) => {
-	    this.datausage = response;
+	    this.gateway_data.rx = response.rx;
+	    this.gateway_data.tx = response.tx;
 	    console.log(response);
 	});
     }
@@ -58,7 +51,7 @@ export class testComponent implements OnInit {
 		action: 'tx_power',
 		interface: 'wlan2',
 	}, (response) => {
-		this.txpower = response;
+		this.gateway_radio.txpower = response;
 	});
     }
 	

@@ -1,4 +1,4 @@
-<mat-grid-list cols="3">
+<mat-grid-list cols="3" style="height:1000px; overflow:hidden" rowHeight="100%">
 
 <mat-grid-tile>
 <mat-card>
@@ -53,7 +53,7 @@
 
     <mat-card-title>
 	<div style="display: inline-block; vertical-align: sub;">Gateway</div>
-        <button style="float: right;" matTooltip="Refresh" mat-icon-button (click)="getTxPower();">
+        <button style="float: right;" matTooltip="Refresh" mat-icon-button (click)="doAPIAction();">
                 <mat-icon>refresh</mat-icon>
         </button>
     </mat-card-title>
@@ -66,33 +66,33 @@
 	<hr/>
 	<h3>Radio</h3>
 	<hr/>
-	<span><div class="displayname">Interface:</div><div class="displayvalue">wlan2</div></span>
+	<span><div class="displayname">Interface:</div><div class="displayvalue">{{gateway_radio.interface}}</div></span>
 	<br/>
-	<span><div class="displayname">TX Power:</div><div class="displayvalue">{{txpower}}</div></span>
+	<span><div class="displayname">TX Power:</div><div class="displayvalue">{{gateway_radio.txpower}}</div></span>
 	<br/>
-	<span><div class="displayname">Bitrate:</div><div class="displayvalue">0.00 Mb/s</div></span>
+	<span><div class="displayname">Bitrate:</div><div class="displayvalue">{{gateway_radio.bitrate}}</div></span>
 	<br/>
         <hr/>
         <h3>Access Point</h3>
         <hr/>
-        <span><div class="displayname">ESSID:</div><div class="displayvalue">TestNet (channel 4)</div></span>
+        <span><div class="displayname">SSID:</div><div class="displayvalue">{{gateway_ap.essid}}</div></span>
         <br/>
-        <span><div class="displayname">MAC Address:</div><div class="displayvalue">00:01:02:03:04:05</div></span>
+        <span><div class="displayname">MAC:</div><div class="displayvalue">{{gateway_ap.mac}}</div></span>
         <br/>
-        <span><div class="displayname">IP Address:</div><div class="displayvalue">192.168.101.100</div></span>
+        <span><div class="displayname">IP:</div><div class="displayvalue">{{gateway_ap.ip}}</div></span>
         <br/>
-        <span><div class="displayname">Gateway:</div><div class="displayvalue">192.169.101.1</div></span>
+        <span><div class="displayname">Gateway:</div><div class="displayvalue">{{gateway_ap.gw}}</div></span>
 	<br/>
-        <span><div class="displayname">DNS:</div><div class="displayvalue">192.168.101.1, 1.1.1.1, 8.8.8.8</div></span>
+        <span><div class="displayname">DNS:</div><div class="displayvalue">{{gateway_ap.dns}}</div></span>
         <br/>
 	<hr/>
 	<h3>Data</h3>
 	<hr/>
-	<span><div class="displayname">Data Rate:</div><div class="displayvalue">0.00 Mb/s</div></span>
+	<span><div class="displayname">Data Rate:</div><div class="displayvalue">{{gateway_data.rate}}</div></span>
 	<br/>
-	<span><div class="displayname">Total in:</div><div class="displayvalue">{{datausage.rx}}</div></span>
+	<span><div class="displayname">Total in:</div><div class="displayvalue">{{gateway_data.rx}}</div></span>
 	<br/>
-	<span><div class="displayname">Total out:</div><div class="displayvalue">{{datausage.tx}}</div></span>
+	<span><div class="displayname">Total out:</div><div class="displayvalue">{{gateway_data.tx}}</div></span>
 	<br/>
     </mat-card-content>
 </mat-card>
