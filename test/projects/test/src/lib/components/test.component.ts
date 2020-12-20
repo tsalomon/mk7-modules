@@ -10,7 +10,7 @@ export class testComponent implements OnInit {
     constructor(private API: ApiService) { }
 
 
-    gateway_radio = {'interface':'wlan2', 'txpower':'0.00 [dBm]', 'bitrate':'0.00 [Mbps]'}
+    gateway_radio = {'interface':'wlan2', 'txpower':'0.00 [dBm]', 'bitrate':'0.00 [Mbps]', 'rx':'0', 'tx':'0'}
     gateway_ap = {'essid':'TestNet', 'mac':'00:01:02:03:04:05', 'ip':'192.168.1.100', 'gw':'192.168.1.1/24', 'dns':'192.168.1.1'}
     gateway_data = {'rate':'0.00 [Mbps]', 'rx':'0 [bytes]', 'tx':'0 [bytes]'}    
 
@@ -25,11 +25,10 @@ export class testComponent implements OnInit {
 
 	this.API.request({
 	    module: 'test',
-	    action: 'gateway_info',
+	    action: 'gateway',
 	    interface: 'wlan2',
 	}, (response) => {
-	    this.gateway_data.rx = response.rx;
-	    this.gateway_data.tx = response.tx;
+	    this.gateway_radio = response;
 	    console.log(response);
 	});
     }
